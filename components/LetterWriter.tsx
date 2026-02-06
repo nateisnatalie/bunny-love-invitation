@@ -17,7 +17,7 @@ const CardContent = ({ mode, message, onMessageChange, dateStr, timeStr }: {
     style={{
       backgroundColor: '#fff0f5', // Soft Pink (Rose-50)
       width: '320px',
-      borderRadius: '15px',
+      borderRadius: '12px',
     }}
   >
     {/* The White Paper Card */}
@@ -151,7 +151,7 @@ const LetterWriter: React.FC = () => {
           className="w-full max-w-[320px] py-3 bg-gray-900 text-white rounded-full font-cute font-bold text-[10px] uppercase tracking-[0.15em] shadow-xl hover:bg-black active:scale-95 disabled:opacity-50 disabled:active:scale-100 transition-all flex items-center justify-center gap-2 group"
         >
           <span>Seal & Preview</span>
-          <Heart size={14} className="fill-rose-500 text-rose-500" />
+          <Heart size={14} className="fill-rose-200 text-rose-200" />
         </button>
       </div>
     );
