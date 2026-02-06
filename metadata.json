@@ -1,0 +1,8 @@
+{
+  "name": "Bunny Love Invitation Pro",
+  "description": "A cute, interactive Valentine's Day invitation with AI magic features.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>For My Wifey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Importing Fonts: Nunito (Sans), Outfit (Cute), Playfair Display (Elegant Serif), Great Vibes (Cursive Script) -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@400;600;700;800&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Nunito', 'sans-serif'],
+              cute: ['Outfit', 'sans-serif'],
+              serif: ['"Playfair Display"', 'serif'],
+              script: ['"Great Vibes"', 'cursive'],
+            },
+            colors: {
+              cream: '#fff5f7', 
+              rose: {
+                50: '#fff0f5',  
+                100: '#ffe4e6', 
+                200: '#fcc2d7', 
+                300: '#ff90b3', 
+                400: '#ff69b4', 
+                500: '#ff1493', 
+                600: '#db2777', 
+                700: '#be185d',
+                800: '#9d174d',
+                900: '#831843',
+              },
+              lavender: '#E6E6FA',
+              sky: '#E0F7FA'
+            },
+            animation: {
+              'bounce-slow': 'bounce 3s infinite',
+              'wiggle': 'wiggle 1s ease-in-out infinite',
+              'pop': 'pop 0.3s ease-out forwards',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              wiggle: {
+                '0%, 100%': { transform: 'rotate(-3deg)' },
+                '50%': { transform: 'rotate(3deg)' },
+              },
+              pop: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #ffdce5; /* Matches the outer heart color */
+        
+        /* 
+           RETRO POP-ART BACKGROUND (Rounder & Softer)
+           - Shape: Much rounder, plumper hearts.
+           - Color: Outer (Darkest Pastel) -> Inner (Soft Pink, NOT White).
+        */
+        background-image: url("data:image/svg+xml,%3Csvg width='800' height='1200' viewBox='0 0 800 1200' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpath id='heart' d='M400 1050 C 150 850 50 600 50 400 C 50 200 200 100 400 280 C 600 100 750 200 750 400 C 750 600 650 850 400 1050 Z' /%3E%3C/defs%3E%3Cg transform='translate(0 0)'%3E%3C!-- Layer 1: Background (Deepest Pastel) --%3E%3Crect width='800' height='1200' fill='%23ffdce5' /%3E%3C!-- Layer 2 --%3E%3Cuse href='%23heart' transform='translate(400 600) scale(1.7) translate(-400 -600)' fill='%23ffe6ee' /%3E%3C!-- Layer 3 --%3E%3Cuse href='%23heart' transform='translate(400 600) scale(1.35) translate(-400 -600)' fill='%23fff0f5' /%3E%3C!-- Layer 4 --%3E%3Cuse href='%23heart' transform='translate(400 600) scale(1.0) translate(-400 -600)' fill='%23fff5f8' /%3E%3C!-- Layer 5 (Center): Soft Pink (No longer pure white) --%3E%3Cuse href='%23heart' transform='translate(400 600) scale(0.65) translate(-400 -600)' fill='%23fff9fb' /%3E%3C/g%3E%3C/svg%3E");
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "html-to-image": "https://esm.sh/html-to-image@^1.11.13"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
