@@ -17,11 +17,11 @@ const CardContent = ({ mode, message, onMessageChange, dateStr, timeStr }: {
     style={{
       backgroundColor: '#fff0f5', // Soft Pink (Rose-50)
       width: '320px',
-      borderRadius: '12px',
+      borderRadius: '15px',
     }}
   >
     {/* The White Paper Card */}
-    <div className="bg-white w-full rounded-[20px] p-5 shadow-sm flex flex-col relative overflow-hidden min-h-[300px]">
+    <div className={`bg-white w-full rounded-[20px] p-5 shadow-sm flex flex-col relative overflow-hidden ${mode === 'input' ? 'min-h-[300px]' : ''}`}>
 
       {/* Header: Avatar + User */}
       <div className="flex items-center gap-3 mb-3 z-10 shrink-0">
@@ -34,7 +34,7 @@ const CardContent = ({ mode, message, onMessageChange, dateStr, timeStr }: {
         </div>
         <div className="flex flex-col leading-tight">
           <span className="font-cute font-extrabold text-gray-900 text-base">{CONFIG.herName.toLowerCase()}</span>
-          <span className="font-cute text-gray-400 text-xs font-medium">@{CONFIG.herName.toLowerCase()}</span>
+          <span className="font-cute text-gray-400 text-xs font-medium">@aint_norahs</span>
         </div>
       </div>
 
@@ -69,8 +69,8 @@ const CardContent = ({ mode, message, onMessageChange, dateStr, timeStr }: {
 
     {/* Bottom Watermark */}
     <div className="mt-4 mb-1 text-center">
-      <p className="font-cute text-[9px] font-bold text-rose-400 tracking-widest uppercase opacity-80">
-        Created from Bunny Love
+      <p className="font-chalk-script text-[15px] font-bold text-rose-400 tracking-widest uppercase opacity-80">
+        Everything I'm Looking For
       </p>
     </div>
   </div>
