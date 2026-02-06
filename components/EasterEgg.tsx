@@ -106,8 +106,8 @@ const EasterEgg: React.FC = () => {
               <p className="font-chalk-script text-3xl sm:text-4xl text-rose-200/90 tracking-widest -rotate-2 text-center leading-snug">
                 You are Everything<br /> I'm Looking For
               </p>
-              <p className="font-chalk-block text-xs sm:text-sm text-white/50 tracking-[0.4em] uppercase">
-                I LOVE YOU
+              <p className="font-chalk-script text-xs sm:text-sm text-white/50 tracking-[0.4em] uppercase">
+                I LOVE YOU BABY
               </p>
             </div>
 
