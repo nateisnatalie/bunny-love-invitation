@@ -32,7 +32,7 @@ const RSVPPass: React.FC<RSVPPassProps> = ({ data, onWriteLetter }) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-full w-full px-4 animate-pop">
+    <div className="flex flex-col items-center justify-center h-full w-full px-4 mt-8 animate-pop">
 
       {/* 
          THE "POLKA CHIC" CARD
@@ -41,7 +41,7 @@ const RSVPPass: React.FC<RSVPPassProps> = ({ data, onWriteLetter }) => {
 
         {/* Wrapper */}
         <div
-          className="p-3 shadow-2xl relative"
+          className="p-3 shadow-lg relative"
           style={{
             backgroundColor: '#000',
             backgroundImage: 'radial-gradient(#f9a8d4 1.5px, transparent 1.5px)',
@@ -51,11 +51,15 @@ const RSVPPass: React.FC<RSVPPassProps> = ({ data, onWriteLetter }) => {
           {/* The Actual Card - Locked 4:3 Ratio */}
           <div
             ref={passRef}
-            className="bg-[#fffdfa] relative flex flex-col items-center text-center px-6 py-6 shadow-inner"
+            className="bg-[#fffdfa] relative flex flex-col items-center text-center px-6 py-6"
             style={{
               width: '240px',          // Fixed width (Small)
               height: '320px',         // Fixed height
-              backgroundImage: 'url("https://www.transparenttextures.com/patterns/cream-paper.png")'
+              backgroundColor: '#fefefe',
+              backgroundImage: `
+                        radial-gradient(circle at 25% 25%, rgba(0,0,0,0.02) 0%, transparent 50%),
+                        radial-gradient(circle at 75% 75%, rgba(0,0,0,0.02) 0%, transparent 50%)
+                    `,
             }}
           >
             {/* Gold/Rose Foil Border Inset */}
@@ -80,12 +84,12 @@ const RSVPPass: React.FC<RSVPPassProps> = ({ data, onWriteLetter }) => {
 
               {/* 4. Names */}
               <div className="w-full border-t border-rose-100 my-2 w-1/2"></div>
-              <p className="font-serif text-[10px] font-bold text-gray-800 tracking-wider uppercase mt-1">
+              <p className="font-serif text-[10px] text-gray-800 tracking-wider mt-1">
                 {CONFIG.herName} & {CONFIG.myName}
               </p>
 
               {/* 5. Date */}
-              <p className="font-serif text-[9px] text-rose-500 font-semibold tracking-widest mt-4 uppercase">
+              <p className="font-cute text-[9px] text-rose-200 font-semibold tracking-widest mt-4 uppercase">
                 {CONFIG.date} • {CONFIG.time}
               </p>
             </div>
@@ -96,13 +100,13 @@ const RSVPPass: React.FC<RSVPPassProps> = ({ data, onWriteLetter }) => {
       {/* 
         BUTTONS - Compact spacing
       */}
-      <div className="w-full max-w-[240px] space-y-2">
+      <div className="w-full max-w-[320px] mt-8 space-y-2">
         {/* Primary Action */}
         <button
           onClick={onWriteLetter}
-          className="w-full py-3 bg-gray-900 text-white rounded-full font-cute font-bold text-[10px] uppercase tracking-[0.15em] shadow-xl hover:bg-black active:scale-95 transition-all flex items-center justify-center gap-2 group"
+          className="w-full py-3.5 bg-gray-900 text-white rounded-full font-cute font-bold text-xs uppercase tracking-[0.15em] shadow-xl hover:bg-black active:scale-95 transition-all flex items-center justify-center gap-2"
         >
-          <PenLine size={14} className="text-rose-200 group-hover:-rotate-12 transition-transform" />
+          <PenLine size={16} className="fill-rose-200 group-hover:-rotate-12 transition-transform" />
           <span>Write a Reply</span>
         </button>
 
@@ -112,7 +116,7 @@ const RSVPPass: React.FC<RSVPPassProps> = ({ data, onWriteLetter }) => {
           disabled={downloading}
           className="w-full py-3 bg-white/60 backdrop-blur-sm text-gray-600 rounded-full font-cute font-bold text-[10px] uppercase tracking-[0.15em] hover:bg-white hover:text-gray-900 transition-all flex items-center justify-center gap-2"
         >
-          <Download size={14} />
+          <Download size={16} />
           <span>{downloading ? "Saving..." : "Save Image"}</span>
         </button>
       </div>

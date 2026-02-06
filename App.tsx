@@ -290,7 +290,7 @@ const App: React.FC = () => {
                 className="w-full py-3.5 bg-gray-900 text-white rounded-full font-cute font-bold text-xs uppercase tracking-[0.15em] shadow-xl hover:bg-black active:scale-95 transition-all flex items-center justify-center gap-2"
               >
                 <span>Confirm Reservation</span>
-                <Heart size={16} className="fill-rose-500 text-rose-500" />
+                <Heart size={16} className="fill-rose-200 text-rose-200" />
               </button>
 
               <div className="relative">
@@ -343,14 +343,27 @@ const App: React.FC = () => {
   };
 
   return (
-    // 100dvh for proper mobile height
-    <div className="h-[100dvh] w-full max-w-md mx-auto relative overflow-hidden flex flex-col">
+    // Responsive Wrapper:
+    // Mobile: 100dvh, full width
+    // Desktop (sm+): Centered "Phone" view with thick white bezel, shadow, and fixed height.
+    <div className="min-h-[100dvh] w-full flex items-center justify-center sm:p-8 transition-all duration-500 relative">
+
+      {/* 
+            NAVIGATION & CONTROLS 
+            - Mobile: Absolute inside the screen (top-4)
+            - Desktop: Fixed outside the phone frame (top-8/10) to clear the bezel
+        */}
 
       {/* Back Button */}
       {step !== Step.OPENING && (
         <button
           onClick={handleBack}
-          className="absolute top-4 left-4 z-50 w-10 h-10 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full border border-gray-200 flex items-center justify-center hover:bg-white active:scale-90 transition-all shadow-sm"
+          className="
+                    z-[60] w-10 h-10 bg-white/80 backdrop-blur-sm text-gray-700 rounded-full border border-gray-200 flex items-center justify-center shadow-sm transition-all
+                    hover:bg-white hover:scale-110 active:scale-90 
+                    absolute top-4 left-4 
+                    sm:fixed sm:top-10 sm:left-10
+                "
         >
           <ArrowLeft size={18} />
         </button>
@@ -359,27 +372,44 @@ const App: React.FC = () => {
       {/* Mute Button */}
       <button
         onClick={toggleMute}
-        className={`absolute top-4 right-4 z-50 w-10 h-10 rounded-full border flex items-center justify-center transition-all shadow-sm
-            ${isMuted
+        className={`
+                z-[60] w-10 h-10 rounded-full border flex items-center justify-center transition-all shadow-sm hover:scale-110 active:scale-90
+                absolute top-4 right-4 
+                sm:fixed sm:top-10 sm:right-10
+                ${isMuted
             ? 'bg-rose-50 text-rose-500 border-rose-200'
-            : 'bg-white/80 backdrop-blur-sm text-gray-700 border-gray-200 hover:bg-white'}`}
+            : 'bg-white/80 backdrop-blur-sm text-gray-700 border-gray-200 hover:bg-white'}
+            `}
       >
         {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
       </button>
 
-      {/* MAIN CONTENT AREA: Centered and flexible */}
-      <main className="flex-grow z-10 w-full relative flex flex-col items-center justify-center p-2">
-        {renderContent()}
-      </main>
+      {/* MAIN APP CONTAINER ("The Phone") */}
+      <div className="
+            relative overflow-hidden flex flex-col transition-all duration-500
+            w-full max-w-md
+            h-[100dvh]                            /* Mobile: Full viewport height */
+            sm:h-[850px] sm:max-h-[90vh]          /* Desktop: Fixed height constraint */
+            sm:rounded-[45px]                     /* Desktop: Phone-like corners */
+            sm:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] /* Desktop: Deep elegant shadow */
+            sm:border-[12px] sm:border-white      /* Desktop: Thick bezel */
+            bg-transparent                        /* Let the beautiful body background show through */
+        ">
 
-      {/* Footer - Compact */}
-      <footer className="shrink-0 text-center pb-safe-4 pb-4 pt-1 z-10 w-full relative bg-transparent">
-        <div className="flex items-center justify-center gap-1.5 mb-1 opacity-80">
-          <span className="font-cute text-[10px] font-bold text-gray-400 tracking-widest uppercase">From {CONFIG.myName}</span>
-          <Heart size={10} className="text-rose-400 fill-rose-400 animate-pulse" />
-        </div>
-        <EasterEgg />
-      </footer>
+        {/* MAIN CONTENT AREA */}
+        <main className="flex-grow z-10 w-full relative flex flex-col items-center justify-center p-2">
+          {renderContent()}
+        </main>
+
+        {/* Footer */}
+        <footer className="shrink-0 text-center pb-safe-4 pb-4 pt-1 z-10 w-full relative bg-transparent">
+          <div className="flex items-center justify-center gap-1.5 mb-1 opacity-80">
+            <span className="font-cute text-[10px] font-bold text-gray-400 tracking-widest uppercase">From {CONFIG.myName}</span>
+            <Heart size={10} className="text-rose-400 fill-rose-400 animate-pulse" />
+          </div>
+          <EasterEgg />
+        </footer>
+      </div>
     </div>
   );
 };
